@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aláírás</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<table cellpadding="0" cellspacing="0" class="sig-main-table">
+  <tr>
+    <td valign="middle" class="sig-left-cell">
+      <a href="https://evk.hu"><img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/evk_logo.png" alt="EVK Szakkollégium" class="sig-main-logo"></a>
+      <a href="https://www.linkedin.com/school/evkszakkollegium/"><img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/linkedin.png" alt="LinkedIn" class="sig-social-logo"></a>
+      <a href="https://www.facebook.com/evkszakkollegium"><img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/facebook.png" alt="Facebook" class="sig-social-logo"></a>
+      <a href="https://www.instagram.com/evkszakkollegium/"><img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/instagram.png" alt="Instagram" class="sig-social-logo"></a>
+    </td>
+    <td valign="middle">
+      <table cellpadding="0" cellspacing="0" class="sig-right-table">
+        <tr>
+          <td class="nev" colspan="2">
+            <strong>Bokor Balázs Bence</strong>
+          </td>
+        </tr>
+        <tr>
+          <td class="biz" colspan="2">
+            Szakmai Bizottság
+          </td>
+        </tr>
+        <tr>
+          <td class="sig-spacer" colspan="2">
+            &nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td class="sig-icon-cell">
+            <img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/phone.png" alt="Telefon" class="sig-icon">
+          </td>
+          <td class="telo">
+            +36 20 250 4343
+          </td>
+        </tr>
+        <tr>
+          <td class="sig-icon-cell">
+            <img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/location.png" alt="Cím" class="sig-icon">
+          </td>
+          <td class="sig-text-cell">
+            1092 Budapest, Kinizsi utca 2-6.
+          </td>
+        </tr>
+        <tr>
+          <td class="sig-icon-cell-last">
+            <a href="https://evk.hu"><img src="https://evk.hu/public_html/wp-content/uploads/2026/alarias/web.png" alt="Web" class="sig-icon"></a>
+          </td>
+          <td class="sig-text-cell-last">
+            evk.hu
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<hr>
+<br>
+
+<p class="sig-instruction">Először válaszd ki a nevedet, pozíciódat és írd be a telefonszámod. Kattints az "aláírás generálása" gombra, majd a "másolás vágólapra" gombra. Ezután nyisd meg a Gmail beállításait, és egyszerűen (Ctrl + V) másold be az aláírásokhoz!</p>
+
+<select id="nev">
+  <option>Válassz nevet!</option>
+</select>
+
+<select id="bizottsag">
+  <option>Válassz pozíciót!</option>
+</select>
+
+<input type="text" id="telefonszam" placeholder="Add meg a telefonszámod">
+<button id="generalas">Aláírás generálása</button>
+<button id="masolas">Másolás vágólapra</button>
+<button id="ujratoltes">Újratöltés</button>
+
+<hr>
+<br>
+
+<div class="signature" id="signature" style="width: 400px"></div>
+
+<script>
+// --- 1. ADATOK TÁROLÁSA ---
+const nevekLista = ['Alberti Bálint', 'Andrik Milán Márk', 'Angelusz Manó', 'Balogh Emília Inez', 'Balogh Máté', 'Bary Félix', 'Becsei Kinga', 'Bihary Boglárka', 'Bogáti Gergely', 'Bokor Balázs', 'Borbás Petra', 'Boros Péter', 'Chaban Jázmin', 'Csiha Zétény Örs', 'Dávid Kata Zafira', 'Dobi Emőke', 'Dóczi Laura', 'Dormán Klára', 'Dormán Miklós', 'Dudás Fülöp', 'Durányik Eliza', 'Gasztonyi Ábel', 'Gasztonyi Barnabás', 'Gera Zsófia', 'Gillay Benedek Dániel', 'Gyenis Máté', 'Hatos Flóra', 'Hérics Zsombor', 'Ivády Milán', 'Juhász Kende', 'Kádas Roland', 'Karácsony Emma', 'Kassai Levente', 'Leveles Balázs', 'Lipkovics Vilmos', 'Magyarosi András', 'Major Ferenc', 'Mészáros-Baraczka Eszter', 'Miklán Levente', 'Molnár Panna', 'Nagy Bence Alex', 'Németh Dániel István', 'Németh-Eke Lilla', 'Novák Lea', 'Oláh Zoltán János', 'Orosz Rebeka', 'Paládi Petra', 'Pintér Dorottya', 'Pogrányi János Dávid', 'Rápli Éva', 'Rázsó Kata Lilla', 'Ribizsár Benjámin', 'Ródler Kinga', 'Rónai Zétény', 'Selyem Márton', 'Spitczmüller Zia', 'Szabó Dalma', 'Szabó Dániel', 'Szabó Gellért Gábor', 'Szabó Márk', 'Szakács Ádám', 'Szerdahelyi Lóránt', 'Szigeti Zalán', 'Szigetváry Emma', 'Takács Zalán', 'Tóth Anna Sára', 'Tóth Dániel', 'Tóth Péter', 'Tóth Szonja Georgina', 'Várvölgyi Dorka', 'Vass Dávid Ádám', 'Vass Nóra Boglárka', 'Virág Bálint Jakab'];
+
+const bizottsagLista = [
+    "Elnök",
+    "Gazdasági Vezető",
+    "Külkapcsolati Vezető",
+    "Marketing Vezető",
+    "OEV főszervező",
+    "Szakmai Vezető",
+    "Ügyvezető",
+    "Innováció Team Coordinator",
+    "Látókörbővítő Team Coordinator",
+    "Felügyelő Bizottság",
+    "Pénzügy Bizottság",
+    "Külkapcsolati Bizottság",
+    "Marketing Bizottság",
+    "OEV szervező",
+    "Szakmai Bizottság",
+    "Ügyvezető Bizottság",
+    "Innováció Team",
+    "Látókörbővítő Team"
+];
+
+// --- 2. LENYÍLÓ LISTÁK FELTÖLTÉSE AUTOMATIKUSAN ---
+window.onload = function() {
+  const nevSelect = document.getElementById('nev');
+  const bizottsagSelect = document.getElementById('bizottsag');
+
+  nevekLista.forEach(function(nev) {
+    const option = document.createElement('option');
+    option.value = nev;
+    option.textContent = nev;
+    nevSelect.appendChild(option);
+  });
+
+  bizottsagLista.forEach(function(bizottsag) {
+    const option = document.createElement('option');
+    option.value = bizottsag;
+    option.textContent = bizottsag;
+    bizottsagSelect.appendChild(option);
+  });
+};
+
+  // 1. SEGÉDFÜGGVÉNY: A táblázat DOM-ba illesztése
+  function createSignatureDiv(nevVal, bizottsagVal, telefonszamVal) {
+    const eredetiTablazat = document.querySelector('.sig-main-table');
+    const ujTablazat = eredetiTablazat.cloneNode(true);
+
+    if (nevVal.trim() !== '') {
+      ujTablazat.querySelector('.nev').innerHTML = '<strong>' + nevVal + '</strong>';
+    }
+    if (bizottsagVal.trim() !== '') {
+      ujTablazat.querySelector('.biz').textContent = bizottsagVal;
+    }
+    if (telefonszamVal.trim() !== '') {
+      const tisztaSzam = telefonszamVal.replace(/\s+/g, '');
+      const teloCella = ujTablazat.querySelector('.telo');
+      
+      // 1. A telefonszám SZÖVEG linkesítése CSS osztályokkal
+      teloCella.innerHTML = `<a href="tel:${tisztaSzam}" class="sig-link">${telefonszamVal}</a>`;
+      
+      // 2. Az IKON linkesítése CSS osztályokkal
+      const ikonCella = teloCella.previousElementSibling;
+      const eredetiKep = ikonCella.innerHTML.trim();
+      
+      ikonCella.innerHTML = `<a href="tel:${tisztaSzam}" class="sig-icon-link">${eredetiKep}</a>`;
+    }
+
+    const signatureDiv = document.querySelector('#signature');
+    signatureDiv.innerHTML = ''; 
+    signatureDiv.appendChild(ujTablazat);
+  }
+
+  // --- KÉZI GENERÁLÁS GOMB ---
+  document.getElementById('generalas').addEventListener('click', function() {
+    const nev = document.getElementById('nev').value;
+    const bizottsag = document.getElementById('bizottsag').value;
+    const telefonszam = document.getElementById('telefonszam').value;
+    createSignatureDiv(nev, bizottsag, telefonszam);
+  });
+
+  // --- VÁGÓLAPRA MÁSOLÁS GOMB ---
+  document.getElementById('masolas').addEventListener('click', function() {
+    const signatureDiv = document.getElementById('signature');
+
+    if (signatureDiv.innerHTML.trim() === '') return;
+
+    const range = document.createRange();
+    range.selectNodeContents(signatureDiv);
+    
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+
+    try {
+      document.execCommand('copy');
+      alert("Sikeres másolás! Beillesztheted a Gmailbe.");
+    } catch (err) {
+    }
+
+    selection.removeAllRanges();
+  });
+
+  // --- OLDAL ÚJRATÖLTÉSE GOMB ---
+  document.getElementById('ujratoltes').addEventListener('click', function() {
+    window.location.reload();
+  });
+</script>
+</body>
+</html>
