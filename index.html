@@ -26,7 +26,7 @@
         </tr>
         <tr>
           <td class="biz" colspan="2">
-            Szakmai Bizottság
+            Ügyvezető Bizottság
           </td>
         </tr>
         <tr>
@@ -88,7 +88,7 @@
 
 <script>
 // --- 1. ADATOK TÁROLÁSA ---
-const nevekLista = ['Alberti Bálint', 'Andrik Milán Márk', 'Angelusz Manó', 'Balogh Emília Inez', 'Balogh Máté', 'Bary Félix', 'Becsei Kinga', 'Bihary Boglárka', 'Bogáti Gergely', 'Bokor Balázs', 'Borbás Petra', 'Boros Péter', 'Chaban Jázmin', 'Csiha Zétény Örs', 'Dávid Kata Zafira', 'Dobi Emőke', 'Dóczi Laura', 'Dormán Klára', 'Dormán Miklós', 'Dudás Fülöp', 'Durányik Eliza', 'Gasztonyi Ábel', 'Gasztonyi Barnabás', 'Gera Zsófia', 'Gillay Benedek Dániel', 'Gyenis Máté', 'Hatos Flóra', 'Hérics Zsombor', 'Ivády Milán', 'Juhász Kende', 'Kádas Roland', 'Karácsony Emma', 'Kassai Levente', 'Leveles Balázs', 'Lipkovics Vilmos', 'Magyarosi András', 'Major Ferenc', 'Mészáros-Baraczka Eszter', 'Miklán Levente', 'Molnár Panna', 'Nagy Bence Alex', 'Németh Dániel István', 'Németh-Eke Lilla', 'Novák Lea', 'Oláh Zoltán János', 'Orosz Rebeka', 'Paládi Petra', 'Pintér Dorottya', 'Pogrányi János Dávid', 'Rápli Éva', 'Rázsó Kata Lilla', 'Ribizsár Benjámin', 'Ródler Kinga', 'Rónai Zétény', 'Selyem Márton', 'Spitczmüller Zia', 'Szabó Dalma', 'Szabó Dániel', 'Szabó Gellért Gábor', 'Szabó Márk', 'Szakács Ádám', 'Szerdahelyi Lóránt', 'Szigeti Zalán', 'Szigetváry Emma', 'Takács Zalán', 'Tóth Anna Sára', 'Tóth Dániel', 'Tóth Péter', 'Tóth Szonja Georgina', 'Várvölgyi Dorka', 'Vass Dávid Ádám', 'Vass Nóra Boglárka', 'Virág Bálint Jakab'];
+const nevekLista = ['Alberti Bálint', 'Andrik Milán Márk', 'Angelusz Manó', 'Balogh Emília Inez', 'Balogh Máté', 'Bary Félix', 'Becsei Kinga', 'Bihary Boglárka', 'Bogáti Gergely', 'Bokor Balázs Bence', 'Borbás Petra', 'Boros Péter', 'Chaban Jázmin', 'Csiha Zétény Örs', 'Dávid Kata Zafira', 'Dobi Emőke', 'Dóczi Laura', 'Dormán Klára', 'Dormán Miklós', 'Dudás Fülöp', 'Durányik Eliza', 'Gasztonyi Ábel', 'Gasztonyi Barnabás', 'Gera Zsófia', 'Gillay Benedek Dániel', 'Gyenis Máté', 'Hatos Flóra', 'Hérics Zsombor', 'Ivády Milán', 'Juhász Kende', 'Kádas Roland', 'Karácsony Emma', 'Kassai Levente', 'Leveles Balázs', 'Lipkovics Vilmos', 'Magyarosi András', 'Major Ferenc', 'Mészáros-Baraczka Eszter', 'Miklán Levente', 'Molnár Panna', 'Nagy Bence Alex', 'Németh Dániel István', 'Németh-Eke Lilla', 'Novák Lea', 'Oláh Zoltán János', 'Orosz Rebeka', 'Paládi Petra', 'Pintér Dorottya', 'Pogrányi János Dávid', 'Rápli Éva', 'Rázsó Kata Lilla', 'Ribizsár Benjámin', 'Ródler Kinga', 'Rónai Zétény', 'Selyem Márton', 'Spitczmüller Zia', 'Szabó Dalma', 'Szabó Dániel', 'Szabó Gellért Gábor', 'Szabó Márk', 'Szakács Ádám', 'Szerdahelyi Lóránt', 'Szigeti Zalán', 'Szigetváry Emma', 'Takács Zalán', 'Tóth Anna Sára', 'Tóth Dániel', 'Tóth Péter', 'Tóth Szonja Georgina', 'Várvölgyi Dorka', 'Vass Dávid Ádám', 'Vass Nóra Boglárka', 'Virág Bálint Jakab'];
 
 const bizottsagLista = [
     "Elnök",
@@ -108,7 +108,8 @@ const bizottsagLista = [
     "Szakmai Bizottság",
     "Ügyvezető Bizottság",
     "Innováció Team",
-    "Látókörbővítő Team"
+    "Látókörbővítő Team",
+    "IT Bizottság"
 ];
 
 // --- 2. LENYÍLÓ LISTÁK FELTÖLTÉSE AUTOMATIKUSAN ---
@@ -156,6 +157,19 @@ window.onload = function() {
       ikonCella.innerHTML = `<a href="tel:${tisztaSzam}" class="sig-icon-link">${eredetiKep}</a>`;
     }
 
+    // --- ÚJ RÉSZ: WEBOLDAL LINKESÍTÉSE ---
+    const webCella = ujTablazat.querySelector('.sig-text-cell-last');
+    if (webCella) {
+      // 1. A weboldal SZÖVEG linkesítése a fekete CSS osztállyal
+      webCella.innerHTML = `<a href="https://evk.hu" class="sig-link">evk.hu</a>`;
+      
+      // 2. A weboldal IKON linkesítése
+      const webIkonCella = webCella.previousElementSibling;
+      // Csak az <img> taget vesszük ki, hogy ne legyen dupla <a> tag
+      const webImg = webIkonCella.querySelector('img').outerHTML;
+      webIkonCella.innerHTML = `<a href="https://evk.hu" class="sig-icon-link">${webImg}</a>`;
+    }
+
     const signatureDiv = document.querySelector('#signature');
     signatureDiv.innerHTML = ''; 
     signatureDiv.appendChild(ujTablazat);
@@ -166,6 +180,25 @@ window.onload = function() {
     const nev = document.getElementById('nev').value;
     const bizottsag = document.getElementById('bizottsag').value;
     const telefonszam = document.getElementById('telefonszam').value;
+
+    // --- TELEFONSZÁM VALIDÁCIÓ ---
+    // Ha a mező nem üres, ellenőrizzük a formátumot
+    if (telefonszam.trim() !== '') {
+      // Ez a minta (Regex) kikényszeríti a pontos "+36 12 345 6789" formátumot:
+      // ^\+36  : Pontosan "+36 "-szal kezdődik
+      // \d{2}  : Pontosan 2 számjegy (pl. 20, 30, 70)
+      // \d{3}  : Pontosan 3 számjegy
+      // \d{4}$ : Pontosan 4 számjegy a legvégén, és közötte szóközök
+      const phoneRegex = /^\+36 \d{2} \d{3} \d{4}$/;
+      
+      if (!phoneRegex.test(telefonszam)) {
+        // Ha nem egyezik a minta, hibaüzenetet adunk, és megállítjuk a generálást
+        alert("Hibás telefonszám formátum!\n\nKérlek, pontosan így add meg: +36 20 123 4567\n(Ügyelj a szóközökre is!)");
+        return; 
+      }
+    }
+
+    // Ha a formátum helyes (vagy a mező üres), akkor folytatódik a generálás
     createSignatureDiv(nev, bizottsag, telefonszam);
   });
 
