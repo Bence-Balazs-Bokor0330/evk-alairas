@@ -36,22 +36,22 @@ button#generalas:hover, button#masolas:hover, button#ujratoltes:hover {
 }
 
 .sig-left-cell {
-  padding-right: 20px;
+  padding-right: 18px; /* Kicsit közelebb került a logó a vonalhoz */
   text-align: center;
 }
 
 .sig-main-logo {
   display: block;
-  width: 125px;
-  height: 58px;
-  margin-bottom: 12px;
+  width: 115px;
+  height: 53px;
+  margin-bottom: 10px;
 }
 
 .sig-social-logo {
   display: inline-block;
-  width: 25px;
-  height: 25px;
-  margin: 0 4px;
+  width: 22px;
+  height: 22px;
+  margin: 0 3px;
 }
 
 .sig-right-table {
@@ -60,19 +60,19 @@ button#generalas:hover, button#masolas:hover, button#ujratoltes:hover {
 }
 
 .nev {
-  padding: 0 0 0 18px !important;
+  padding: 0 0 0 15px !important;
   margin: 0 !important;
   line-height: 1 !important;
-  font-size: 20px;
+  font-size: 18px;
   font-family: sans-serif;
   color: #000000;
 }
 
 .biz {
-  padding: 5px 0 0 18px !important;
+  padding: 4px 0 0 15px !important;
   margin: 0 !important;
   line-height: 1 !important;
-  font-size: 15px;
+  font-size: 14px;
   font-family: sans-serif;
   color: #000000;
 }
@@ -80,44 +80,44 @@ button#generalas:hover, button#masolas:hover, button#ujratoltes:hover {
 .sig-spacer {
   padding: 0 !important;
   margin: 0 !important;
-  height: 16px !important;
-  line-height: 16px !important;
-  font-size: 16px !important;
+  height: 14px !important;
+  line-height: 14px !important;
+  font-size: 14px !important;
 }
 
 .sig-icon-cell {
-  padding: 0 0 5px 18px !important;
-  width: 18px;
+  padding: 0 0 4px 15px !important;
+  width: 16px;
   vertical-align: middle;
 }
 
 .sig-icon-cell-last {
-  padding: 0 0 0 18px !important;
-  width: 18px;
+  padding: 0 0 0 15px !important;
+  width: 16px;
   vertical-align: middle;
 }
 
 .sig-icon {
   display: block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
 }
 
 .telo, .sig-text-cell {
-  padding: 0 0 5px 8px !important;
+  padding: 0 0 4px 6px !important; /* Az ikon és a szöveg közti távolság is picit kisebb */
   margin: 0 !important;
   line-height: 1 !important;
-  font-size: 14px;
+  font-size: 13px;
   font-family: sans-serif;
   color: #000000;
   vertical-align: middle;
 }
 
 .sig-text-cell-last {
-  padding: 0 0 0 8px !important;
+  padding: 0 0 0 6px !important;
   margin: 0 !important;
   line-height: 1 !important;
-  font-size: 14px;
+  font-size: 13px;
   font-family: sans-serif;
   color: #000000;
   vertical-align: middle;
