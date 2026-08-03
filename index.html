@@ -142,12 +142,17 @@ window.onload = function() {
     const eredetiTablazat = document.querySelector('.sig-main-table');
     const ujTablazat = eredetiTablazat.cloneNode(true);
 
-    if (nevVal.trim() !== '') {
+    // Név ellenőrzése: ha nem az alap "Válassz nevet!" van kiválasztva
+    if (nevVal !== 'Válassz nevet!') {
       ujTablazat.querySelector('.nev').innerHTML = '<strong>' + nevVal + '</strong>';
     }
-    if (bizottsagVal.trim() !== '') {
+    
+    // Bizottság ellenőrzése: ha nem az alap "Válassz pozíciót!" van kiválasztva,
+    // felülírja a cellát (ha az üres opciót választják, akkor üressé teszi!)
+    if (bizottsagVal !== 'Válassz pozíciót!') {
       ujTablazat.querySelector('.biz').textContent = bizottsagVal;
     }
+    
     if (telefonszamVal.trim() !== '') {
       const tisztaSzam = telefonszamVal.replace(/\s+/g, '');
       const teloCella = ujTablazat.querySelector('.telo');
